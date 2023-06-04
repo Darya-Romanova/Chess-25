@@ -12,7 +12,6 @@ public class Rook extends ChessPiece{
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn)) {
             if (column == toColumn) {
-
                 for (int i = getMin(line, toLine); i < getMax(line, toLine); i++) {
                     if (chessBoard.board[i][column] != null) {
                         if (chessBoard.board[i][column] == this && i == getMax(line, toLine)) return false;
@@ -23,15 +22,12 @@ public class Rook extends ChessPiece{
                         else if (i != toLine && i != line) return false;
                     }
                 }
-
                 if (chessBoard.board[toLine][column] != null) {
                     if (chessBoard.board[toLine][column].getColor().equals(this.color) && chessBoard.board[toLine][column] != this)
                         return false;
                     else return !chessBoard.board[toLine][column].getColor().equals(this.color) && chessBoard.board[toLine][column] != this;
                 } else return true;
-
             } else if (line == toLine) {
-
                 for (int i = getMin(toColumn, column); i < getMax(column, toColumn); i++) {
                     if (chessBoard.board[line][i] != null) {
                         if (chessBoard.board[line][i] == this && i == getMax(column, toColumn)) return false;

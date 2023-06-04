@@ -1,4 +1,4 @@
-public class Bishop extends ChessPiece{
+public class Bishop extends ChessPiece {
     public Bishop(String color) {
         super(color);
     }
@@ -11,16 +11,16 @@ public class Bishop extends ChessPiece{
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (line != toLine && column != toColumn &&
-                getMax(line, toLine) - getMin(line, toLine) == getMax(column, toColumn) - getMin(column, toColumn) &&
-                checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn) &&
-                (chessBoard.board[toLine][toColumn] == null || !chessBoard.board[toLine][toColumn].color.equals(this.color)) &&
-                chessBoard.board[line][column] != null) {
+        getMax(line, toLine) - getMin(line, toLine) == getMax(column, toColumn) - getMin(column, toColumn) &&
+        checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn) &&
+        (chessBoard.board[toLine][toColumn] == null || !chessBoard.board[toLine][toColumn].color.equals(this.color)) &&
+        chessBoard.board[line][column] != null) {
             if (!chessBoard.board[line][column].equals(this)) {
                 return false;
             }
 
             if ((column == getMin(column, toColumn) && line == getMax(line, toLine)) ||
-                    (toColumn == getMin(column, toColumn) && toLine == getMax(line, toLine))) {
+            (toColumn == getMin(column, toColumn) && toLine == getMax(line, toLine))) {
                 int fromL = getMax(line, toLine);
                 int fromC = getMin(column, toColumn);
                 int toL = getMin(line, toLine);
